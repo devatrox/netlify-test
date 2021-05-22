@@ -1,11 +1,15 @@
 # Netlify Testproject
 
+On a local machine run
+
 ```
 npm install
 npm run netlify
 ```
 
 Now open http://localhost:8888/.netlify/functions/test in a browser
+
+Hosted is at https://festive-curran-b99121.netlify.app/.netlify/functions/test
 
 Expected behavior:
 
@@ -35,5 +39,5 @@ Actual behavior:
 
 ```
 I get an error message:
-Error: ENOENT: no such file or directory, open '/Users/devatrox/Projekte/netlify-test/.netlify/functions-serve/test/src/test/schema.graphql'
+Error: ENOENT: no such file or directory, open '/path/to/project/.netlify/functions-serve/test/src/test/schema.graphql'
 ```
