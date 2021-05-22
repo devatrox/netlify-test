@@ -3,9 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "build": "netlify-lambda install functions/ && npm run build:functions",
-        "build:functions": "cd functions/ && npm run build && cd ..",
-        "netlify": "netlify dev"
+        "build": "npm run build:functions",
+        "build:functions": "npm run gql-generate",
+        "netlify": "netlify dev",
+        "ts-check": "tsc --noEmit ./**/*.ts",
+        "gql-generate": "apollo client:codegen --localSchemaFile=functions/test/schema.graphql --target typescript --includes=functions/test/**/*.ts --no-addTypename --globalTypesFile=functions/__generated__/global.d.ts --tsFileExtension=d.ts __generated__"
     },
     "eslintConfig": {
         "extends": [
@@ -31,10 +33,16 @@
     },
     "dependencies": {
         "@netlify/functions": "^0.7.2",
-        "netlify-lambda": "^2.0.7"
+        "apollo": "^2.33.2",
+        "apollo-server": "^2.24.1",
+        "apollo-server-lambda": "^2.24.1",
+        "bufferutil": "^4.0.3",
+        "encoding": "^0.1.13",
+        "utf-8-validate": "^5.0.5"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
+        "eslint": "^7.27.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^3.4.0",
         "prettier": "^2.3.0",
