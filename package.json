@@ -3,11 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "postinstall": "netlify-lambda install functions/ && npm run build:functions",
+        "build": "netlify-lambda install functions/ && npm run build:functions",
         "build:functions": "cd functions/ && npm run build && cd ..",
-        "netlify": "netlify dev",
-        "ts-check": "tsc --noEmit ./src/*.ts",
-        "gql-generate": "apollo codegen:generate --localSchemaFile=functions/test/schema.graphql --target typescript --includes=src/**/*.ts --no-addTypename --globalTypesFile=src/__generated__/global.d.ts --tsFileExtension=d.ts __generated__"
+        "netlify": "netlify dev"
     },
     "eslintConfig": {
         "extends": [
@@ -32,12 +30,7 @@
         ]
     },
     "dependencies": {
-        "@apollo/client": "^3.3.19",
         "@netlify/functions": "^0.7.2",
-        "@testing-library/jest-dom": "^5.12.0",
-        "@testing-library/react": "^11.2.7",
-        "@testing-library/user-event": "^13.1.9",
-        "apollo": "^2.33.2",
         "netlify-lambda": "^2.0.7"
     },
     "devDependencies": {
